@@ -56,16 +56,19 @@ dependencies {
 
 }
 
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            groupId = "com.github.Shubhamj08"
-            artifactId = "networksdk"
-            version = "1.0.9"
 
-            afterEvaluate {
+afterEvaluate {
+    publishing {
+        publications {
+            register<MavenPublication>("release") {
                 from(components["release"])
+
+                groupId = "com.sjcoding"
+                artifactId = "networksdk"
+                version = "1.0.0"
+
             }
         }
     }
 }
+

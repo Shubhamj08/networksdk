@@ -12,6 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.lifecycleScope
+import com.sjcoding.networksdk.di.NetworkModule
+import com.sjcoding.networksdk.util.Result
 import com.sjcoding.networksdk.ui.theme.NetworkSDKTheme
 import kotlinx.coroutines.launch
 
@@ -19,23 +21,23 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        NetworkSDK.initialize("https://jsonplaceholder.typicode.com/")
-//
-//        lifecycleScope.launch {
-//            val commentsRepository = NetworkModule.networkRepository
-//
-//            val customHeaders = mapOf("Authorization" to "Bearer token123")
-//
-//            when(val result = commentsRepository.getData<List<Comment>>("comments", customHeaders)){
-//                is Result.Success -> {
-//                    Log.d("MainActivity", "GET Data received: ${result.data}")
-//                }
-//                is Result.Error -> {
-//                    Log.d("MainActivity", "GET request failed: ${result.exception.message}")
-//                }
-//            }
-//
-//        }
+        NetworkSDK.initialize("https://jsonplaceholder.typicode.com/")
+
+        lifecycleScope.launch {
+            val commentsRepository = NetworkModule.networkRepository
+
+            val customHeaders = mapOf("Authorization" to "Bearer token123")
+
+            when(val result = commentsRepository.getData<List<Comment>>("comments", customHeaders)){
+                is Result.Success -> {
+                    Log.d("MainActivity", "GET Data received: ${result.data}")
+                }
+                is Result.Error -> {
+                    Log.d("MainActivity", "GET request failed: ${result.exception.message}")
+                }
+            }
+
+        }
 
         setContent {
             NetworkSDKTheme {
