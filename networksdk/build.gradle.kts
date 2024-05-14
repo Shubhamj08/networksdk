@@ -66,7 +66,7 @@ publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "com.github.Shubhamj08"
-            artifactId = "network-sdk"
+            artifactId = "networksdk"
             version = "1.0.0"
 
             afterEvaluate {

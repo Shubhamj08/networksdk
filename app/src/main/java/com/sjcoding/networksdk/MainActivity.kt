@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        NetworkSDK.initialize("https://jsonplaceholder.typicode.com/")
+        NetworkSDk.initialize("https://jsonplaceholder.typicode.com/")
 
         lifecycleScope.launch {
             val commentsRepository = NetworkModule.networkRepository
