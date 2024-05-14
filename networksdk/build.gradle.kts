@@ -65,39 +65,12 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.sjcoding"
+            groupId = "com.github.Shubhamj08"
             artifactId = "network-sdk"
             version = "1.0.0"
 
             afterEvaluate {
                 from(components["release"])
-            }
-
-            pom {
-                name.set("Network SDK")
-                description.set("A simple network SDK for Android")
-                url.set("https://github.com/Shubhamj08/networksdk")
-
-                licenses {
-                    license {
-                        name.set("The Apache License, Version 2.0")
-                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                    }
-                }
-
-                developers {
-                    developer {
-                        id.set("Shubhamj08")
-                        name.set("Shubham Jha")
-                        email.set("sj951563@gmail.com")
-                    }
-                }
-
-                scm {
-                    connection.set("scm:git:github.com/Shubhamj08/networksdk.git")
-                    developerConnection.set("scm:git:ssh://github.com/Shubhamj08/networksdk.git")
-                    url.set("https://github.com/Shubhamj08/networksdk")
-                }
             }
         }
     }
