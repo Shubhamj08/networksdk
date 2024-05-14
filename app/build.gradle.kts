@@ -61,7 +61,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
 
 //    implementation(project(":networksdk"))
-    implementation("com.github.Shubhamj08:networksdk:1.0.1")
+    implementation("com.github.Shubhamj08:networksdk:1.0.3")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
