@@ -15,7 +15,7 @@ android {
         consumerProguardFiles("consumer-rules.pro")
 
         aarMetadata {
-            minCompileSdk = 29
+            minCompileSdk = 24
         }
     }
 
@@ -34,12 +34,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-    }
-
-    publishing {
-        singleVariant("release"){
-            withSourcesJar()
-        }
     }
 }
 
