@@ -60,7 +60,7 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            register<MavenPublication>("release") {
+            create<MavenPublication>("release") {
                 from(components["release"])
 
                 groupId = "com.sjcoding"
