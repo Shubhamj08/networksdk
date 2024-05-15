@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sjcoding.networksdk"
+    namespace = "com.sjcoding.networklibrary"
     compileSdk = 33
 
     defaultConfig {
@@ -60,11 +60,11 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            create<MavenPublication>("release") {
+            register<MavenPublication>("release") {
                 from(components["release"])
 
                 groupId = "com.sjcoding"
-                artifactId = "networksdk"
+                artifactId = "network"
                 version = "1.0.0"
 
             }
