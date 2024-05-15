@@ -62,7 +62,7 @@ dependencies {
 
 //    implementation(project(":networksdk"))
 //    implementation("com.sjcoding:networksdk:1.0.0")
-    implementation("com.github.Shubhamj08:networksdk:1.0.4")
+//    implementation("com.github.Shubhamj08:networksdk:1.0.5")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

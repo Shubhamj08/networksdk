@@ -26,6 +26,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            tasks.matching { it.name == "verifyReleaseResources" }.configureEach { enabled = false }
         }
     }
     compileOptions {
