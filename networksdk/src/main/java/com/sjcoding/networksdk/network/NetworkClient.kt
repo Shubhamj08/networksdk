@@ -1,5 +1,6 @@
 package com.sjcoding.networksdk.network
 
+import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -18,6 +19,7 @@ internal object NetworkClient {
             val requestBuilder = original.newBuilder()
 
             headers?.forEach { (key, value) ->
+                Log.d(key, value)
                 requestBuilder.addHeader(key, value)
             }
 

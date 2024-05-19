@@ -1,7 +1,7 @@
 package com.sjcoding.networksdk.di
 
 import com.sjcoding.networksdk.network.NetworkRepositoryImpl
-import com.sjcoding.networksdk.network.NetworkRepositoryInterface
+import com.sjcoding.networksdk.network.NetworkRepository
 import java.lang.IllegalStateException
 
 object NetworkModule {
@@ -12,7 +12,7 @@ object NetworkModule {
         this.baseUrl = baseUrl
     }
 
-    val networkRepository: NetworkRepositoryInterface
+    val networkRepository: NetworkRepository
         get() = baseUrl?.let { NetworkRepositoryImpl(it) } ?: throw IllegalStateException("Base URL not initialized")
 
 }

@@ -1,22 +1,30 @@
 package com.sjcoding.networksdk.network
 
+import com.google.gson.Gson
 import com.sjcoding.networksdk.util.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.lang.Exception
+import java.lang.reflect.Type
 
-class NetworkRepositoryImpl(private val baseUrl: String) : NetworkRepositoryInterface {
+class NetworkRepositoryImpl(private val baseUrl: String) : NetworkRepository {
 
+    private val gson = Gson()
     private fun getApiService(headers: Map<String, String>?): ApiService {
         return NetworkClient.getApiService(baseUrl, headers)
     }
 
-    override suspend fun <T> getData(endpoint: String, headers: Map<String, String>?): Result<T> {
+    override suspend fun <T> getData(
+        endpoint: String,
+        responseType: Type?,
+        headers: Map<String, String>?
+    ): Result<T> {
         return withContext(Dispatchers.IO) {
             try {
                 val apiService = getApiService(headers)
                 val response = apiService.getData<T>(endpoint)
-                Result.Success(response)
+                val data = gson.fromJson<T>(gson.toJson(response), responseType)
+                Result.Success(data)
             } catch (e: Exception) {
                 Result.Error(e)
             }
@@ -26,6 +34,7 @@ class NetworkRepositoryImpl(private val baseUrl: String) : NetworkRepositoryInte
     override suspend fun <T> postData(
         endpoint: String,
         body: Any,
+        responseType: Type?,
         headers: Map<String, String>?
     ): Result<T> {
         return withContext(Dispatchers.IO) {
@@ -42,6 +51,7 @@ class NetworkRepositoryImpl(private val baseUrl: String) : NetworkRepositoryInte
     override suspend fun <T> putData(
         endpoint: String,
         body: Any,
+        responseType: Type?,
         headers: Map<String, String>?
     ): Result<T> {
         return withContext(Dispatchers.IO) {
@@ -55,7 +65,11 @@ class NetworkRepositoryImpl(private val baseUrl: String) : NetworkRepositoryInte
         }
     }
 
-    override suspend fun <T> deleteData(endpoint: String, headers: Map<String, String>?): Result<T> {
+    override suspend fun <T> deleteData(
+        endpoint: String,
+        responseType: Type?,
+        headers: Map<String, String>?
+    ): Result<T> {
         return withContext(Dispatchers.IO) {
             try {
                 val apiService = getApiService(headers)
@@ -70,6 +84,7 @@ class NetworkRepositoryImpl(private val baseUrl: String) : NetworkRepositoryInte
     override suspend fun <T> patchData(
         endpoint: String,
         body: Any,
+        responseType: Type?,
         headers: Map<String, String>?
     ): Result<T> {
         return withContext(Dispatchers.IO) {
