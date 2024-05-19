@@ -1,12 +1,12 @@
 package com.sjcoding.networksdk.data.repository
 
 import com.sjcoding.networksdk.BuildConfig
+import com.sjcoding.networksdk.util.Result
 import com.sjcoding.networksdk.NetworkSDK
 import com.sjcoding.networksdk.data.model.Movie
 import com.sjcoding.networksdk.data.model.MovieResponse
 import com.sjcoding.networksdk.di.NetworkModule
 import com.sjcoding.networksdk.network.NetworkRepository
-import com.sjcoding.networksdk.util.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
