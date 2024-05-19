@@ -73,8 +73,8 @@ dependencies {
     implementation("androidx.compose.material3:material3")
 
 //    implementation(project(":networksdk"))
-    implementation("com.sjcoding:network:1.0.1")
-//    implementation("com.github.Shubhamj08:networksdk:1.0.6")
+//    implementation("com.sjcoding:network:1.0.1")
+    implementation("com.github.Shubhamj08:networksdk:1.0.9")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("io.coil-kt:coil-compose:1.4.0")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
