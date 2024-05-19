@@ -72,7 +72,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
 
-    implementation(project(":networksdk"))
+//    implementation(project(":networksdk"))
 //    implementation("com.sjcoding:networksdk:1.0.0")
 //    implementation("com.github.Shubhamj08:networksdk:1.0.6")
     implementation("com.google.code.gson:gson:2.10.1")
